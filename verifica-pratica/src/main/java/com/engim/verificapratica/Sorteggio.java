@@ -34,4 +34,10 @@ public class Sorteggio {
     public boolean isDaMischiare() {
         return daMischiare;
     }
+
+    public List<Partita> getPartite(){
+
+    }
+
+
 }
