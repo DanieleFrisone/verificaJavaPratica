@@ -35,7 +35,22 @@ public class Sorteggio {
         return daMischiare;
     }
 
-    public List<Partita> getPartite(){
+    public List<Partita> sorteggiaPartite(){
+
+        int x = (int) Math.sqrt(squadre.size());
+        List<Partita> listaPartite = new ArrayList<>();
+
+        if (x != Math.sqrt(squadre.size())){
+            throw new IndexOutOfBoundsException("squadre non potenza di 2");
+        } else {
+            Collections.shuffle(squadre);
+            for (int i = 0; i<squadre.size(); i=i+2){
+                Partita partita = new Partita(squadre.get(i), squadre.get(i+1));
+                listaPartite.add(partita);
+            }
+
+            return listaPartite;
+        }
 
     }
 

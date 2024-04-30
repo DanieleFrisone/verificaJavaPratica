@@ -2,15 +2,16 @@ package com.engim.verificapratica;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@RestController
 public class Controller {
 
 
     private static Sorteggio sorteggio = new Sorteggio();
-
 
     /*
     * ES 1: get ("/add?nome=n&nazione=m") che aggiunge al sorteggio una squadra con nome n e nazione m (utilizzare
@@ -76,9 +77,8 @@ public class Controller {
     * */
 
     @GetMapping("/getPartite")
-    public void getPartite(){
-
-        sorteggio.sorteggiaPartite();
+    public List<Partita> getPartite(){
+        return sorteggio.sorteggiaPartite();
     }
 
 
